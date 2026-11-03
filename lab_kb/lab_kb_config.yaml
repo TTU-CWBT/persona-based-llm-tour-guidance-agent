@@ -1,0 +1,25 @@
+# 語料與索引
+raw_dir: "./raw"
+store_dir: "./store"
+
+# 模型（預設中文友善）
+embedding_model: "BAAI/bge-m3"   # 可改 "BAAI/bge-m3" 做中英混檢索
+normalize_embeddings: true
+
+# 分塊與檢索
+chunk_size: 800          # 每塊字元數
+chunk_overlap: 120
+top_k: 8                 # 預設檢索回傳段數
+min_score: 0.22          # 最低相似度閾值（cosine）
+use_faiss: true          # 可設 false 改用 sklearn NN
+
+# 支援格式
+include_ext:
+  - ".txt"
+  - ".md"
+  - ".pdf"
+  - ".csv"
+
+# 斷行/清洗
+strip_whitespace: true
+collapse_newlines: true
